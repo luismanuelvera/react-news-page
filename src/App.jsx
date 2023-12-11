@@ -1,6 +1,6 @@
 import { useState } from "react";
-import NavBar from "./components/navbar";
-import NewsBoard from "./components/newsboard";
+import NavBar from "./components/NavBar";
+import NewsBoard from "./components/NewsBoard";
 
 export const App = () => {
 
