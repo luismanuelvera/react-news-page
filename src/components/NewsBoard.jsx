@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react"
-import NewsItem from "./newsitem";
+import NewsItem from "./NewsItem";
 
 export const newsboard = ({ category, region }) => {
 
