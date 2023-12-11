@@ -1,4 +1,4 @@
-export const NavBar = ({setCategory}) => {
+export const NavBar = ({setCategory, setRegion}) => {
 
   const categories = ["general", "sports", "technology", "business", "health", "science", "entertainment"];
 
@@ -15,6 +15,7 @@ export const NavBar = ({setCategory}) => {
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
+
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
@@ -34,6 +35,24 @@ export const NavBar = ({setCategory}) => {
                   <li><div className="dropdown-item" onClick={() => setCategory("entertainment")}>Entertainment</div></li>
                   <li><hr className="dropdown-divider"></hr></li>
                   <li><div className="dropdown-item" onClick={() => setCategory(returnRandomCategory())}>Random</div></li>
+                </ul>
+              </li>
+
+              <li className="nav-item dropdown">
+                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Region
+                </a>
+                <ul className="dropdown-menu">
+                  <li><div className="dropdown-item" onClick={() => setRegion("gb")}>United Kingdom</div></li>
+                  <li><div className="dropdown-item" onClick={() => setRegion("us")}>United States</div></li>
+                  <li><div className="dropdown-item" onClick={() => setRegion("ca")}>Canada</div></li>
+                  <li><div className="dropdown-item" onClick={() => setRegion("mx")}>Mexico</div></li>
+                  <li><div className="dropdown-item" onClick={() => setRegion("cn")}>China</div></li>
+                  <li><div className="dropdown-item" onClick={() => setRegion("jp")}>Japan</div></li>
+                  <li><div className="dropdown-item" onClick={() => setRegion("de")}>Germany</div></li>
+                  <li><div className="dropdown-item" onClick={() => setRegion("fr")}>France</div></li>
+                  <li><div className="dropdown-item" onClick={() => setRegion("br")}>Brazil</div></li>
+                  <li><div className="dropdown-item" onClick={() => setRegion("ar")}>Argentina</div></li>
                 </ul>
               </li>
             </ul>

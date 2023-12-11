@@ -7,8 +7,8 @@ export const newsitem = ({ title, description, src, url }) => {
         <img src={src?src:default_image} style={{ maxHeight: "180px"}} className="card-img-top" alt="..." />
       </div>
       <div style={{ width: "300px", height:"190px", padding:"4px"}} className="card-body">
-        <h5 style={{height: "48px"}} className="card-title">{title.slice(0, 30)}</h5>
-        <p className="card-text">{description ? description.slice(0, 60) : "Something happened while retrieving the information..."}</p>
+        <h5 style={{height: "48px"}} className="card-title">{title.slice(0, 30)+ '...'}</h5>
+        <p className="card-text">{description ? description.slice(0, 60) + '...': "Something happened while retrieving the information..."}</p>
         <a href={url} className="btn btn-primary">Read More</a>
       </div>
     </div>
