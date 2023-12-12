@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react"
 import NewsItem from "./NewsItem";
 
-export const newsboard = ({ category, region }) => {
+export const newsboard = ({ category, region, searchQuery }) => {
 
   const [articles, setArticles] = useState([])
 
@@ -28,8 +28,15 @@ export const newsboard = ({ category, region }) => {
 
   useEffect(() => {
     let url = `https://newsapi.org/v2/top-headlines?country=${region}&category=${category}&apiKey=${import.meta.env.VITE_API_KEY}`
-    fetch(url).then(response => response.json()).then(data => setArticles(data.articles));
+    if (searchQuery == "")
+      fetch(url).then(response => response.json()).then(data => setArticles(data.articles));
   }, [category, region])
+
+  // useEffect(() => {
+  //   let url = `https://newsapi.org/v2/everything?q=${searchQuery}&from=2023-11-12&sortBy=popularity&apiKey=${import.meta.env.VITE_API_KEY}`
+  //   if (searchQuery != null)
+  //     fetch(url).then(response => response.json()).then(data => setArticles(data.articles))
+  // }, [searchQuery])
 
   return (
     <div>

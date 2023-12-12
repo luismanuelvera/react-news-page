@@ -1,6 +1,8 @@
-export const NavBar = ({setCategory, setRegion}) => {
+import { useState } from "react";
 
-  const categories = ["general", "sports", "technology", "business", "health", "science", "entertainment"];
+export const NavBar = ({setCategory, setRegion, setSearchQuery}) => {
+
+  const categories = ["general", "sports", "technology", "business", "health", "science", "entertainment"];  
 
   function returnRandomCategory(){
     const randomIndex = Math.floor(Math.random() * (6 - 0));
@@ -57,8 +59,8 @@ export const NavBar = ({setCategory, setRegion}) => {
               </li>
             </ul>
             <form className="d-flex" role="search">
-              <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"></input>
-              <button className="btn btn-outline-success" type="submit">Search</button>
+              <input id="input-query" className="form-control me-2" type="search" placeholder="Search" aria-label="Search"></input>
+              <button className="btn btn-outline-success" type="submit" onSubmit={() => setSearchQuery(document.getElementById("input-query").value)}>Search</button>
             </form>
           </div>
         </div>
