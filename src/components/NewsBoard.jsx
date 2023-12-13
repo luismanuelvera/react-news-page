@@ -34,19 +34,25 @@ export const newsboard = ({ category, region, searchQuery }) => {
 
   useEffect(() => {
     let url = `https://newsapi.org/v2/everything?q=${searchQuery}&from=2023-11-12&sortBy=popularity&apiKey=${import.meta.env.VITE_API_KEY}`
-    if (searchQuery != null)
-      fetch(url).then(response => response.json()).then(data => setArticles(data.articles))
+    if (searchQuery != "")
+      fetch(url).then(response => response.json()).then(data => setArticles(data.articles))    
+    searchQuery = "";
   }, [searchQuery])
 
   return (
     <div>
       <h2 className="text-center">Latest <span className="badge bg-danger">News</span> on {getRegion(region)}</h2>
       <h2 className="text-center">{category.charAt(0).toUpperCase() + category.slice(1)}</h2>
-      {articles.map((news, index) => {
-        return <NewsItem key={index} title={news.title} description={news.description} src={news.urlToImage} url={news.url}></NewsItem>
-      })}
+      {articles.length > 0 ? (
+        articles.map((news, index) => (
+          <NewsItem key={index} title={news.title} description={news.description} src={news.urlToImage} url={news.url}></NewsItem>
+        ))
+      ) : (
+        <p>No news articles available.</p>
+      )}
     </div>
-  )
+  );
+  
 }
 
 export default newsboard;
